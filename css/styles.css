@@ -3,19 +3,26 @@
 :root {
     --font-logo: 'Raleway', sans-serif;
     --font-main: 'Roboto', sans-serif;
+
     --color-accent: #2196F3;
     --color-main: #212121;
     --color-invert: #ffffff;
     --color-sub: #757575;
+    --color-hero-light: #C4C4C4;
+    --color-hero-oeverlay: rgba(47, 48, 58, 0.4);
     --color-extra-light: #EEEEEE;
     --color-header-border: #ECECEC;
     --color-footer-transperent: rgba(255, 255, 255, 0.6);
+
     --color-logo-header: #000000;
     --color-logo-footer: #ffffff;
+
     --color-fill-accent: #2196F3;
     --color-fill-accent-hover: #188CE8;
     --color-fill-dark: #2F303A;
     --color-fill-light: #F5F4FA;
+
+    --color-svg-light: #AFB1B8;
 }
 
 /* variables -- end */
@@ -40,8 +47,9 @@ address {
     font-style: normal;
 }
 
-header a, footer a {
+a {
     text-decoration: none;
+    color: inherit;
 }
 
 .list, .item {
@@ -50,6 +58,10 @@ header a, footer a {
 
 img {
     display: block;
+}
+
+svg {
+    fill: currentColor;
 }
 
 /* normalize -- end */
@@ -135,6 +147,8 @@ nav li:not(:last-child), .header-contacts li:not(:last-child) {
 .header-contacts {
     display: flex;
     margin-left: auto;
+    align-items: baseline;
+    justify-content: center;
 }
 
 nav a {
@@ -150,7 +164,10 @@ nav a {
 }
 
 .header-contacts a {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     padding-top: 32px;
     padding-bottom: 32px;
 
@@ -160,6 +177,16 @@ nav a {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
+}
+
+.header-contacts div {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.header-contacts div {
+    margin-right: 10px;
 }
 
 .header .current-page {
@@ -179,7 +206,10 @@ nav a:hover, nav a:focus, .header-contacts a:hover, .header-contacts a:focus{
     padding-top: 200px;
     padding-bottom: 200px;
 
-    background-color: var(--color-fill-dark);
+    background-color: var(--color-hero-light);
+    background-image: linear-gradient(var(--color-hero-oeverlay), var(--color-hero-oeverlay)), url(../images/hero-background.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 h1 {
@@ -255,6 +285,25 @@ h1 {
     letter-spacing: 0.03em;
 }
 
+.whywe-list div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+
+    width: 270px;
+    
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    background-color: var(--color-fill-light);
+}
+
+.whywe-list svg {
+    align-items: center;
+}
+
 /* whywe -- end */
 
 
@@ -316,7 +365,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-.ourteam-list li {
+.ourteam-list > li {
     max-width: calc(1200px / 4 - 90px / 3);
 
     background-color: var(--color-invert);
@@ -331,6 +380,9 @@ h1 {
 .ourteam-list div {
     padding-top: 30px;
     padding-bottom: 30px;
+
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 .ourteam-list h3 {
@@ -350,13 +402,91 @@ h1 {
     line-height: 1.88;
     text-align: center;
     letter-spacing: 0.03em;
+
+    margin-bottom: 16px;
 }
 
-.ourteam li:not(:last-child) {
+.ourteam-social-list {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.ourteam-social-list a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-svg-light);
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+}
+
+.ourteam-social-list a:focus, .ourteam-social-list a:hover {
+    color: var(--color-invert);
+    background-color: var(--color-accent);
+}
+
+.ourteam-list > li:not(:last-child) {
     margin-right: 30px;
 }
 
 /* ourteam -- end */
+
+/* clients -- start */
+
+.clients {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
+
+.clients h2 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1.17;
+    text-align: center;
+    letter-spacing: 0.03em;
+
+    margin-bottom: 50px;
+}
+
+.clients ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.clients ul div {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    max-width: 170px;
+    max-height: 92px;
+
+    border: 1px solid #AFB1B8;
+    border-radius: 4px;
+}
+
+.clients li:not(:last-child) {
+    margin-right: 30px;
+}
+
+.clients a {
+    color: var(--color-svg-light);
+}
+
+.clients ul div:hover, .clients ul div:focus {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* clients -- end */
 
 
 /* projects -- start */
@@ -414,11 +544,16 @@ h1 {
     margin-bottom: 30px;
 }
 
+.projects-list li > a > div:hover, .projects-list a div:focus {
+    border: 1px solid #EEEEEE;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 .projects-list img {
     max-width: 100%;
 }
 
-.projects-list div {
+.projects-list div div {
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 20px;
@@ -462,6 +597,15 @@ h1 {
     background-color: var(--color-fill-dark);
 }
 
+.footer .container {
+    display: flex;
+    align-items: baseline;
+}
+
+.footer div:not(:last-child) {
+    margin-right: 70px;
+}
+
 .footer-contacts li:not(:last-child) {
     margin-bottom: 9px;
 }
@@ -484,6 +628,45 @@ h1 {
 
 .footer-contacts a:focus, .footer-contacts a:hover  {
     text-decoration: underline;
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-invert);
+}
+
+.footer-social {
+    display: flex;
+}
+
+.footer-social a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-svg-light);
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    color: var(--color-invert);
+}
+
+.footer-social a:focus, .footer-social a:hover {
+    background-color: var(--color-accent);
+}
+
+.footer-social li:not(:last-child) {
+    margin-right: 10px;
 }
 
 /* footer -- end */
